@@ -63,10 +63,12 @@
 .landing {
   position: relative;
   background: url('./img/nyc.jpg') no-repeat center center/cover;
-  height: 100vh; 
+  height: 95vh; 
+
 }
 
 .landing-inner {
+
   color: rgb(255, 253, 253);
   height: 100%;
   width: 80%;
@@ -304,5 +306,8 @@ img {
   height: 1px;
   background: #ccc;
   margin: 1.5rem 0;
+}
+.hearts {
+  color: #e25555; 
 }
 

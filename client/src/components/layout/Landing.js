@@ -6,9 +6,10 @@ const Landing = () => {
 
         <div className='landing-inner'>
           <h1 className='large'>Eat Clean In</h1>
-        </div>
+         </div>
+         <p className='text-center'> Made with <span className='hearts'>&hearts;</span>by E.Cofresi 2019</p>
 
-    </section>
+     </section>
   );
 };
 
