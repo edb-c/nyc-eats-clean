@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './Map';
 
-//const config = require('config');
-//const MAP_API_KEY = config.get('MAP_API_KEY');
-//const MAP_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-const MAP_API_KEY = '';
-
 class GoogleMapContainer extends Component {
   state = {
     showingInfoWindow: false,
@@ -48,6 +43,10 @@ class GoogleMapContainer extends Component {
   }
 }
 
+//const config = require('config');
+//const MAP_API_KEY = config.get('MAP_API_KEY');
+//const MAP_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const MAP_API_KEY = 'AIzaSyDdXlK2d7I-KCIXrO7ptDSbnOfQSJjDixI';
 export default GoogleApiWrapper({
   apiKey: MAP_API_KEY
 })(GoogleMapContainer);
