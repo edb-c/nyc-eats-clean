@@ -5,7 +5,7 @@ import CurrentLocation from './Map';
 //const config = require('config');
 //const MAP_API_KEY = config.get('MAP_API_KEY');
 //const MAP_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-const MAP_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const MAP_API_KEY = 'AIzaSyDdXlK2d7I-KCIXrO7ptDSbnOfQSJjDixI';
 
 class GoogleMapContainer extends Component {
   state = {
@@ -33,7 +33,7 @@ class GoogleMapContainer extends Component {
   render() {
     return (
       <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
-        <Marker onClick={this.onMarkerClick} name={'current location'} />
+        <Marker onClick={this.onMarkerClick} name={'Current Location'} />
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}

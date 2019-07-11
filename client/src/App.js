@@ -6,6 +6,8 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import GoogleMapContainer from './containers/GoogleMapContainer';
 
+import Eateries from './containers/Eateries';
+
 import './assets/App.css';
 
 class App extends Component {
@@ -15,9 +17,9 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route path='/' component={Landing} />
-          <Route path='/' component={GoogleMapContainer} />
+          <Route path='/eateries' component={GoogleMapContainer} />
         </Switch>
-        
+        <Eateries />
       </Fragment>
     );
   }; //end render
