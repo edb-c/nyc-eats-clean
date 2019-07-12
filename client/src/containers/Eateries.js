@@ -2,11 +2,12 @@ import React, { Component, Fragment } from "react";
 import GoogleMapContainer from './GoogleMapContainer';
 import CardGroup from 'react-bootstrap/CardGroup'
 import Card from 'react-bootstrap/Card'
+import Pagination from 'react-bootstrap/Pagination'
 
 export const Grades = ({grades}) => {
  return (
   <div>
-      <center><h2>NYC Restaurant Inspection Results</h2></center>
+      <center><h2>NYC Health Inspection Results</h2></center>
       {grades.map((grade) => (
         <Fragment>
           <CardGroup>
@@ -30,6 +31,23 @@ export const Grades = ({grades}) => {
   </div>
 )
 };
+
+let active = 2;
+let items = [];
+for (let number = 1; number <= 10; number++) {
+  items.push(
+    <Pagination.Item key={number} active={number === active}>
+      {number}
+    </Pagination.Item>,
+  );
+};
+
+export const paginationBasic = (
+  <div>
+    <Pagination size="sm">{items}</Pagination>
+  </div>
+);
+
   
 class Eateries extends Component {
   componentDidMount() {
@@ -52,18 +70,19 @@ class Eateries extends Component {
           <div class="row">
             <div className="column" >
               <Grades grades={this.state.grades} />
+              {paginationBasic}
             </div>
             <div className="column" >
               <GoogleMapContainer />
             </div>
           </div>
+    
+      
         </Fragment>
       ) //end return
+      
+
   } //end render
 } //end class Eateries
 
-
-
-//When connect is used, it 'connects' the component to the application store.
-//Now is smart component or container.
-    export default (Eateries)
+export default (Eateries);
