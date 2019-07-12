@@ -62,8 +62,8 @@
 /* Landing Page */
 .landing {
   position: relative;
-  background: url('./img/nyc.jpg') no-repeat center center/cover;
-  height: 95vh; 
+  background: url('./img/nyc.jpg') no-repeat center center/contain;
+  height: 93vh; 
 
 }
 
