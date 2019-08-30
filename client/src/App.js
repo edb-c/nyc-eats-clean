@@ -18,6 +18,7 @@ class App extends Component {
           <Route exact path='/' component={Landing} />
           <Route exact path='/eateries' component={Eateries} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/login' component={Login} />
         </Switch>
        
       </Fragment>
