@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
 //Switch Component groups <Route>s together
-import { Switch, Route, withRouter } from 'react-router-dom'
+import { Link,Switch, Route, withRouter } from 'react-router-dom'
 
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 import Eateries from './containers/Eateries';
 
 import './assets/App.css';
@@ -14,11 +15,13 @@ class App extends Component {
     return (
       <Fragment>
         <Navbar />
+       
         <Switch>
           <Route exact path='/' component={Landing} />
           <Route exact path='/eateries' component={Eateries} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />
+          
         </Switch>
        
       </Fragment>
