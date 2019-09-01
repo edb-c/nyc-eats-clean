@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 //Switch Component groups <Route>s together
-import { Link,Switch, Route, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
