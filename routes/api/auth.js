@@ -9,6 +9,7 @@ const { check, validationResult } = require('express-validator/check');
 const User = require('../../models/User');
 
 // @route    GET api/auth
+// @desc     
 // @access   Public
 //Making call to our database, leaving out password
 router.get('/', auth, async (req, res) => {
@@ -46,7 +47,7 @@ router.post(
           .status(400)
           .json({ errors: [{ msg: 'Invalid Credentials' }] });
       }
-
+//Uses bcrypt method compare to a plain text password to the encrypted password, returns a promise
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
