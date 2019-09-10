@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
+//Functional Component using React Hook - useState
 const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
+    //default values
     name: '',
     email: '',
     password: '',
@@ -21,9 +24,24 @@ const Register = ({ setAlert, register }) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert('Passwords do not match', 'danger');
+      console.log('Passwords do not match');
+      //setAlert('Passwords do not match', 'danger');
     } else {
-      register({ name, email, password });
+      //register({ name, email, password });
+      const newUser = { name, email, password };
+
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
+        const body = JSON.stringify(newUser);
+        const res = await axios.post('/api/users', body, config);
+        console.log(res.data);
+      } catch (err) {
+        console.error(err.response.data);
+      }
     }
   };
 
@@ -51,10 +69,6 @@ const Register = ({ setAlert, register }) => {
             value={email}
             onChange={e => onChange(e)}
           />
-          <small className='form-text'>
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
-          </small>
         </div>
         <div className='form-group'>
           <input

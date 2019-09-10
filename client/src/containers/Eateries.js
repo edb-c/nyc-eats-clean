@@ -67,7 +67,7 @@ class Eateries extends Component {
   render() {
       return (  
         <Fragment>
-          <div class="row">
+          <div className="row">
             <div className="column" >
               <Grades grades={this.state.grades} />
               {paginationBasic}

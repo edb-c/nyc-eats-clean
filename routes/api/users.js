@@ -21,7 +21,6 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-
 // @route    POST api/users
 // @desc     Register user
 // @access   Public
@@ -54,6 +53,7 @@ router.post(
           .json({ errors: [{ msg: 'User already exists' }] });
       }
 
+      //Create New User
       user = new User({
         name,
         email,
@@ -65,7 +65,8 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
 
       await user.save();
-
+      //Identifies which user is logged in
+      //Mongodb uses _id, Mongoose abstraction allows for .id
       const payload = {
         user: {
           id: user.id
@@ -75,6 +76,7 @@ router.post(
       jwt.sign(
         payload,
         config.get('jwtSecret'),
+        //change to 3600 for production
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
@@ -89,3 +91,12 @@ router.post(
 );
 
 module.exports = router;
+
+/*
+Summary:
+-Create new user, hash the password, save the user in the database 
+-Get the payload which includes the user I.D. 
+-JWT sign the token, pass and the payload pass in the secret, set expiration which is optional but recommended.
+-Inside the callback-get either an error or get the token.
+-If we get the token or no error then send that token back to the client.
+*/
