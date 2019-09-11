@@ -22,10 +22,14 @@ const Register = ({ setAlert, register }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async e => {
+    
     e.preventDefault();
+
     if (password !== password2) {
       console.log('Passwords do not match');
-      //setAlert('Passwords do not match', 'danger');
+    
+      setAlert('Passwords do not match', 'danger');
+  
     } else {
       //register({ name, email, password });
       const newUser = { name, email, password };
@@ -47,7 +51,7 @@ const Register = ({ setAlert, register }) => {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Sign Up</h1>
+      <div className='login_register_page'>
       <p className='lead'>
         <i className='fas fa-user' /> Create Your Account
       </p>
@@ -93,6 +97,7 @@ const Register = ({ setAlert, register }) => {
       <p className='my-1'>
         Already have an account? <Link to='/login'>Sign In</Link>
       </p>
+     </div> 
     </Fragment>
   );
 };

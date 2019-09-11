@@ -19,7 +19,7 @@ const Login = () => {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Login In</h1>
+      <div className='login_register_page'>
       <p className='lead'>
         <i className='fas fa-user' /> Login Into Your Account
       </p>
@@ -49,6 +49,7 @@ const Login = () => {
       <p className='my-1'>
         Don't have an account? <Link to='/register'>Sign Up</Link>
       </p>
+      </div>   
     </Fragment>
   );
 };

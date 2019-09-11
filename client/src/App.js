@@ -4,6 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
+import Alert from './components/layout/Alert';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Eateries from './containers/Eateries';
@@ -15,7 +16,7 @@ class App extends Component {
     return (
       <Fragment>
         <Navbar />
-       
+        <Alert />
         <Switch>
           <Route exact path='/' component={Landing} />
           <Route exact path='/eateries' component={Eateries} />

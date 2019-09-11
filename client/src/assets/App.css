@@ -233,8 +233,8 @@ img {
 }
 
 .alert {
-  padding: 0.8rem;
-  margin: 1rem 0;
+  padding: 1rem;
+  margin: 5rem 0;
   opacity: 0.9;
   background: var(--light-color);
   color: #333;
@@ -267,6 +267,7 @@ img {
 .btn-danger,
 .bg-danger,
 .badge-danger,
+
 .alert-danger {
   background: var(--danger-color);
   color: #fff;
@@ -319,3 +320,7 @@ img {
   padding: 30px;
   margin: 5;
   }
+.login_register_page {
+  text-align: center; 
+  padding: 100px;
+}
