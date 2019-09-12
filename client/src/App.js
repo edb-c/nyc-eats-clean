@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, {Fragment, useEffect } from "react";
 //Switch Component groups <Route>s together
 import { Switch, Route, withRouter } from 'react-router-dom'
 
@@ -8,11 +8,23 @@ import Alert from './components/layout/Alert';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Eateries from './containers/Eateries';
-
 import './assets/App.css';
 
-class App extends Component {
-  render() {  
+//Redux
+import store from './store';
+import { loadUser } from './actions/auth';
+import setAuthToken from './utils/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+};
+
+//React Function using Hooks
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);  //Empty arry bracket makes this run only once, not in a loop
+ 
     return (
       <Fragment>
         <Navbar />
@@ -27,7 +39,6 @@ class App extends Component {
        
       </Fragment>
     );
-  }; //end render
 }; //end class App
 
 export default withRouter(App);
