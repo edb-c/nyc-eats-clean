@@ -1,13 +1,14 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 
 //Functional Component using React Hook - useState
-const Register = ({ setAlert, register }) => {
+//Destructured, instead of (props) - props.SetAlert, etc.
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     //default values
     name: '',
@@ -34,8 +35,12 @@ const Register = ({ setAlert, register }) => {
       
       register({ name, email, password });
     }
-
   };
+
+  if (isAuthenticated) {
+    return <Redirect to='/' />;
+  };
+  
   return (
     <Fragment>
       <div className='login_register_page'>
@@ -91,10 +96,14 @@ const Register = ({ setAlert, register }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 };
 
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
 export default connect(
-  null,
+  mapStateToProps,
   { setAlert, register }
-)(Register);
+)(Register); 
