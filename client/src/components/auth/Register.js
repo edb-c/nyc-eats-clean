@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+
 
 //Functional Component using React Hook - useState
 const Register = ({ setAlert, register }) => {
@@ -31,24 +31,11 @@ const Register = ({ setAlert, register }) => {
       setAlert('Passwords do not match', 'danger');
   
     } else {
-      //register({ name, email, password });
-      const newUser = { name, email, password };
-
-      try {
-        const config = {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        };
-        const body = JSON.stringify(newUser);
-        const res = await axios.post('/api/users', body, config);
-        console.log(res.data);
-      } catch (err) {
-        console.error(err.response.data);
-      }
+      
+      register({ name, email, password });
     }
-  };
 
+  };
   return (
     <Fragment>
       <div className='login_register_page'>

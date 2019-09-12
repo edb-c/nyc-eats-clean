@@ -10,6 +10,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     }
   };
 
+// Prepare Data to send
   const body = JSON.stringify({ name, email, password });
 
   try {
@@ -19,6 +20,7 @@ export const register = ({ name, email, password }) => async dispatch => {
       type: REGISTER_SUCCESS,
       payload: res.data
     });
+  
   } catch (err) {
     const errors = err.response.data.errors;
 
