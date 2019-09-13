@@ -7,8 +7,9 @@ import Landing from './components/layout/Landing';
 import Alert from './components/layout/Alert';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
-import Eateries from './containers/Eateries';
+import Eateries from './components/Eateries';
 import './assets/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Redux
 import store from './store';
