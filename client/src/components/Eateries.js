@@ -6,18 +6,20 @@ import Card from 'react-bootstrap/Card';
 import Pagination from 'react-bootstrap/Pagination';
 
 export const Grades = ({ grades }) => {
+
   return (
+
     <Fragment>
-  
-   <CardGroup>  
-      {grades.map(grade => (
- <div className="eatery-card">
-<Card>        
-<Card.Header>
-                  {grade.dba} - Grade: {grade.grade}{' '}
-                </Card.Header>
-              <Card.Body>
-               
+
+      
+        {grades.map(grade => (
+    
+            <Card>        
+              <Card.Header>
+                {grade.dba} - Grade: {grade.grade}{' '}
+              </Card.Header>
+              
+              <Card.Body> 
                 <Card.Text>
                   Cuisine: {grade.cuisine_description} <br />
                   Address: {grade.building} {grade.street}, {grade.boro}{' '}
@@ -31,35 +33,24 @@ export const Grades = ({ grades }) => {
                   Last updated: {grade.grade_date}
                 </small>
               </Card.Footer>      
-              </Card>    
-         
-              </div>
+            </Card>    
     ))}
 
-  
-         </CardGroup>
 
+</Fragment>
+      
 
- 
-        </Fragment>
-  );
+)
 };
-
-let active = 2;
-let items = [];
-for (let number = 1; number <= 10; number++) {
-  items.push(
-    <Pagination.Item key={number} active={number === active}>
-      {number}
-    </Pagination.Item>
-  );
-}
-
-export const paginationBasic = (
-  <div>
-    <Pagination size='sm'>{items}</Pagination>
-  </div>
-);
+/*  let active = 2;
+  //let items = [];
+  for (let number = 1; number <= 10; number++) {
+    grades.push(
+      <Pagination.Item key={number} active={number === active}>
+        {number}
+      </Pagination.Item>
+    );    
+*/
 
 class Eateries extends Component {
   componentDidMount() {
@@ -71,7 +62,6 @@ class Eateries extends Component {
       .catch(console.log);
   } //end componentDidMount
 
-  //A state = object that holds data pending to be rendered. Will store the output from the API call.
   state = {
     grades: []
   };
@@ -89,8 +79,13 @@ class Eateries extends Component {
 
    <div className="eatery-container">
           <div className="eatery-grades-container">
+       
+         
+            <div className="eatery-card">
             <Grades grades={this.state.grades} />
-            {paginationBasic}                    
+          </div> 
+       
+   
           </div>   
           <div className="eatery-map-container">
           <GoogleMap />      
@@ -102,5 +97,4 @@ class Eateries extends Component {
 } //end class Eateries
 
 export default Eateries;
-//        {paginationBasic}
-//a flexbox container and to transform direct children into flex items, use the d-flex class
+//    {paginationBasic} 

@@ -336,26 +336,27 @@ img {
   border: 1px solid rgb(111, 0, 255);  
 }
 .eatery-map-container {
-  flex: 0 1 50%;
+ 
   min-height: 100%;
-  max-width: 75%;
+  max-width: 25%;
   max-height: 75%;
   border: 1px solid rgb(111, 0, 255);  
 
 }
 .eatery-grades-container {
-  flex: 0 1 50%;
+  flex: 0 0 50%;
+  flex-direction: column;
   min-height: 100%;
   max-width: 75%;
   border: 1px solid ;
   background: rgb(246, 244, 253);
   padding: .5em;
-  
+
 }
 .eatery-card {
   margin-left: 10px;
   margin-bottom: 10px;  
-  width: 48%;
+  width: 50%;
 }
 
 .eatery-card.card {
