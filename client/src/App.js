@@ -7,7 +7,7 @@ import Landing from './components/layout/Landing';
 import Alert from './components/layout/Alert';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
-import Eateries from './components/Eateries';
+import EateriesComponent from './containers/EateriesContainer';
 import './assets/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -32,10 +32,9 @@ const App = () => {
         <Alert />
         <Switch>
           <Route exact path='/' component={Landing} />
-          <Route exact path='/eateries' component={Eateries} />
+          <Route exact path='/eateries' component={EateriesComponent} />
           <Route exact path='/register' component={Register} />
-          <Route exact path='/login' component={Login} />
-          
+          <Route exact path='/login' component={Login} />    
         </Switch>
        
       </Fragment>
