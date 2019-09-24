@@ -11,6 +11,8 @@ import PrivateRoute from './components/PrivateRoute';
 
 import Login from './components/auth/Login';
 import CreateProfile from './components/CreateProfile';
+import EditProfile from './components/EditProfile';
+
 import EateriesComponent from './containers/EateriesContainer';
 
 import './assets/App.css';
@@ -41,12 +43,8 @@ const App = () => {
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
-        <PrivateRoute
-                exact
-                path='/create-profile'
-                component={CreateProfile}
-              />
-
+        <PrivateRoute exact path='/create-profile' component={CreateProfile} />
+        <PrivateRoute exact path='/edit-profile' component={EditProfile} />
       </Switch>
     </Fragment>
   );

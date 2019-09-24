@@ -19,19 +19,29 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
+   <div className='dashboard'>
+
       <h1 className='large text-primary'>Dashboard</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Welcome {user && user.name}
+     
+     
       </p>
       {profile !== null ? (
+
         <Fragment>
-   
+          {profile.bio}
+      <div className='dash-buttons'>
+      <Link to='/edit-profile' class='btn btn-light'>
+        <i class='fas fa-user-circle text-primary' /> Edit Profile
+      </Link>
+      </div>
           <div className='my-2'>
-            <button className='btn btn-danger' onClick={() => deleteAccount()}>
-              <i className='fas fa-user-minus' /> Delete My Account
-            </button>
+      <button className='btn btn-danger' onClick={() => deleteAccount()}>
+          <i className='fas fa-user-minus' /> Delete My Account
+      </button>
           </div>
-        </Fragment>
+    </Fragment>
       ) : (
         <Fragment>
           <p>You have not yet setup a profile, please add some info</p>
@@ -40,6 +50,7 @@ const Dashboard = ({
           </Link>
         </Fragment>
       )}
+  </div>
     </Fragment>
   );
 };
