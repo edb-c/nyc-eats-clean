@@ -6,12 +6,12 @@ import { getCurrentProfile } from '../actions/profile';
 const Dashboard = ({ getCurrentProfile, auth, profile }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, []); //only run once
 
   return <div>Dashboard</div>;
 };
 
-Dashboard.propTypes = {
+Dashboard.propTypes = { 
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired

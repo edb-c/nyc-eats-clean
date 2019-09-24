@@ -13,7 +13,7 @@ const User = require('../../models/User');
 router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate(
-      'user', 'name'
+      'user', ['name','email']
     );
 
     if (!profile) {
@@ -36,7 +36,9 @@ router.post(
     [
         auth, //middleware
         [
-        check('', "Is required")
+        check('bio', "Bio is required") //validator
+          .not()
+          .isEmpty()
         ]
     ],     
     async (req, res) => {
@@ -46,18 +48,21 @@ router.post(
       }
   
       const {
-     //tdb
+        bio 
       } = req.body;
   
       // Build profile object
       const profileFields = {};
       profileFields.user = req.user.id;
-     
+      profileFields.name = req.user.name;
+      profileFields.email = req.user.email;
+      if (bio) profileFields.bio = bio;
+
       try {
         let profile = await Profile.findOne({ user: req.user.id });
   
         if (profile) {
-          // Update
+          // Update Existing Profile
           profile = await Profile.findOneAndUpdate(
             
             { user: req.user.id },
@@ -68,11 +73,12 @@ router.post(
           return res.json(profile);
         }
   
-        // Create
+        // Create New Profile
         profile = new Profile(profileFields);
   
         await profile.save();
         res.json(profile);
+
       } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
