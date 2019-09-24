@@ -13,7 +13,8 @@ const User = require('../../models/User');
 router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate(
-      'user', ['name','email']
+      'user',
+      ['name', 'email']
     );
 
     if (!profile) {
@@ -31,60 +32,72 @@ router.get('/me', auth, async (req, res) => {
 // @desc     Create or update user profile
 // @access   Private
 router.post(
-    '/', 
-    
+  '/',
+
+  [
+    auth, //middleware
     [
-        auth, //middleware
-        [
-        check('bio', "Bio is required") //validator
-          .not()
-          .isEmpty()
-        ]
-    ],     
-    async (req, res) => {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-      }
-  
-      const {
-        bio 
-      } = req.body;
-  
-      // Build profile object
-      const profileFields = {};
-      profileFields.user = req.user.id;
-      profileFields.name = req.user.name;
-      profileFields.email = req.user.email;
-      if (bio) profileFields.bio = bio;
-
-      try {
-        let profile = await Profile.findOne({ user: req.user.id });
-  
-        if (profile) {
-          // Update Existing Profile
-          profile = await Profile.findOneAndUpdate(
-            
-            { user: req.user.id },
-            { $set: profileFields },
-            { new: true }
-          );
-  
-          return res.json(profile);
-        }
-  
-        // Create New Profile
-        profile = new Profile(profileFields);
-  
-        await profile.save();
-        res.json(profile);
-
-      } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
-      }
+      check('bio', 'Bio is required') //validator
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-  );
-  
-  module.exports = router;
 
+    const { bio } = req.body;
+
+    // Build profile object
+    const profileFields = {};
+    profileFields.user = req.user.id;
+    // profileFields.name = req.user.name;
+    // profileFields.email = req.user.email;
+    if (bio) profileFields.bio = bio;
+
+    try {
+      let profile = await Profile.findOne({ user: req.user.id });
+
+      if (profile) {
+        // Update Existing Profile
+        profile = await Profile.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: profileFields },
+          { new: true }
+        );
+
+        return res.json(profile);
+      }
+
+      // Create New Profile
+      profile = new Profile(profileFields);
+
+      await profile.save();
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route    DELETE api/profile
+// @desc     Delete profile and user
+// @access   Private
+router.delete('/', auth, async (req, res) => {
+  try {
+    // Remove profile
+    await Profile.findOneAndRemove({ user: req.user.id });
+    // Remove user
+    await User.findOneAndRemove({ _id: req.user.id });
+
+    res.json({ msg: 'User deleted' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+module.exports = router;
