@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 
 import Login from './components/auth/Login';
+import CreateProfile from './components/CreateProfile';
 import EateriesComponent from './containers/EateriesContainer';
 
 import './assets/App.css';
@@ -37,9 +38,15 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Landing} />
         <Route exact path='/eateries' component={EateriesComponent} />
-        <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
+        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <PrivateRoute
+                exact
+                path='/create-profile'
+                component={CreateProfile}
+              />
+
       </Switch>
     </Fragment>
   );
