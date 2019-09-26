@@ -1,9 +1,14 @@
-import React, { Component, Fragment } from 'react';
-
+import {React, Fragment} from 'react';
 import Card from 'react-bootstrap/Card';
+//import { fetchEateries } from '../actions';
 
-export const EateryCards = ({ eateryCards }) => {
-  return (
+const EateryCard = ({ eateryCards }) => {
+    
+   //   useEffect(() => {
+    //   fetchEateries();
+    //  }, []); //only run once
+
+return (
     <Fragment>
       {eateryCards.map(eateryCard => (
         <Card>
@@ -28,6 +33,6 @@ export const EateryCards = ({ eateryCards }) => {
         </Card>
       ))}
     </Fragment>
-  );
+  )
 };
-export default withRouter(EateryCard);
+export default EateryCard;

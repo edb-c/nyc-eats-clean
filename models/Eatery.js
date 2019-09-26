@@ -1,16 +1,20 @@
 const mongoose = require('mongoose');
 
+//https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j
+//https://data.cityofnewyork.us/resource/43nn-pn8j.json
+
 const EaterySchema = new mongoose.Schema({
     camis: String,
-    name: String,
+    dba: String,
     boro: String,
     building: String,
     street: String,
     zipcode: String,
     phone: String,
-    cuisine: String,
+    cuisine_description: String,
     searchText: String,
-
+    latitude: Number,
+    longitude: Number,
     grade: String,
     gradeDate: String,
 

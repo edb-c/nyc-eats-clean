@@ -13,7 +13,7 @@ import Login from './components/auth/Login';
 import CreateProfile from './components/CreateProfile';
 import EditProfile from './components/EditProfile';
 
-import EateriesComponent from './containers/EateriesContainer';
+//import EateriesList from './components/EateriesList';
 
 import './assets/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,6 +21,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //Redux
 import store from './store';
 import { loadUser } from './actions/auth';
+//import { fetchEateries } from './actions/eatery';
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
@@ -31,6 +32,7 @@ if (localStorage.token) {
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
+       
   }, []); //Empty arry bracket makes this run only once, not in a loop
 
   return (
@@ -39,7 +41,7 @@ const App = () => {
       <Alert />
       <Switch>
         <Route exact path='/' component={Landing} />
-        <Route exact path='/eateries' component={EateriesComponent} />
+       
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />

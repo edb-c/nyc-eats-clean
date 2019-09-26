@@ -44,50 +44,62 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <div className='login_register_page'>
-      <p className='lead'>
-        <i className='fas fa-user' /> Create Your Account
-      </p>
-      <form className='form' onSubmit={e => onSubmit(e)}>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Name'
-            name='name'
-            value={name}
-            onChange={e => onChange(e)}
-          />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+
+              <h1 className="display-4 text-center">Register for an Account</h1>
+              <p className='lead text-center'>
+                <i className='fas fa-user' /> Create Your Account and Profile
+              </p>
+              <form className='form' onSubmit={e => onSubmit(e)}>
+                <div className='form-group'>
+                  <input
+                    className="form-control form-control-lg"
+                    type='text'
+                    placeholder='Name'
+                    name='name'
+                    value={name}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                  className="form-control form-control-lg"
+                    type='email'
+                    placeholder='Email Address'
+                    name='email'
+                    value={email}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    className="form-control form-control-lg"
+                    type='password'
+                    placeholder='Password'
+                    name='password'
+                    value={password}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    className="form-control form-control-lg"
+                    type='password'
+                    placeholder='Confirm Password'
+                    name='password2'
+                    value={password2}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
+                <input type='submit' className='btn btn-primary' value='Register' />
+              </form>
+             </div>
+          </div>
         </div>
-        <div className='form-group'>
-          <input
-            type='email'
-            placeholder='Email Address'
-            name='email'
-            value={email}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='password'
-            placeholder='Password'
-            name='password'
-            value={password}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='password'
-            placeholder='Confirm Password'
-            name='password2'
-            value={password2}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <input type='submit' className='btn btn-primary' value='Register' />
-      </form>
       <p className='my-1'>
-        Already have an account? <Link to='/login'>Sign In</Link>
+        Already have an account? <Link to='/login'>Login</Link>
       </p>
      </div> 
     </Fragment>
