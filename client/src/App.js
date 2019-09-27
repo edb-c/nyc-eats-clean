@@ -14,6 +14,7 @@ import CreateProfile from './components/CreateProfile';
 import EditProfile from './components/EditProfile';
 
 //import EateriesList from './components/EateriesList';
+import EateriesContainer from './containers/EateriesContainer';
 
 import './assets/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,10 +42,12 @@ const App = () => {
       <Alert />
       <Switch>
         <Route exact path='/' component={Landing} />
-       
+        <Route exact path='/eateries' component={EateriesContainer} />
+
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
+
         <PrivateRoute exact path='/create-profile' component={CreateProfile} />
         <PrivateRoute exact path='/edit-profile' component={EditProfile} />
       </Switch>

@@ -13,6 +13,7 @@
   "author": "Ethel Cofresi",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "config": "^3.1.0",
     "dotenv": "^8.0.0",
