@@ -17,11 +17,6 @@ const EateriesList = ({ fetchEateries, eatery: { eateries, loading } }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <h1 className='large text-primary'>Parents</h1>
-          <p className='lead'>
-            <i className='fab fa-connectdevelop' /> Browse and connect with
-            Parents
-          </p>
           <div className='profiles'>
             {eateries.length > 0 ? (
               eateries.map(eatery => (

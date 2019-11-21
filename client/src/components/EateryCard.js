@@ -4,14 +4,6 @@ import Card from 'react-bootstrap/Card';
 
 const EateryCard = ({ eateryCards }) => {
     
-   //   useEffect(() => {
-    //   fetchEateries();
-    //  }, []); //only run once
 
-return (
-    <Fragment>
-
-    </Fragment>
-  )
 };
 export default EateryCard;
