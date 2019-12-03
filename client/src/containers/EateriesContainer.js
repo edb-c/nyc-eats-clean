@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 //import EateryCard from '/EateryCard';
-import GoogleMap from "./Map";
-import { CardDeck, Card, Button } from "react-bootstrap";
+//import GoogleMap from "./Map";
+//import { CardDeck, Card, Button } from "react-bootstrap";
 
 import { connect } from "react-redux";
 import { fetchEateriesGrades } from "../actions/eatery";
@@ -13,8 +13,9 @@ class EateriesContainer extends Component {
   render() {
    
     const eateryCards = this.props.eateriesGrades.map(eateryCard => (
-      <div className="card">
-         <div className="card-header">
+     <div className="card">
+ 
+    <div className="card-header">
          <a href="#" class="card-link">{eateryCard.dba}</a><br />
             Grade: {eateryCard.grade}                    
           </div>                 
@@ -30,6 +31,7 @@ class EateriesContainer extends Component {
           </div>
           <div class="card-text"><small class="text-muted">Last updated {eateryCard.grade_date}</small></div>
       </div>  
+ 
     ));
 
     return (
@@ -42,6 +44,7 @@ class EateriesContainer extends Component {
           <div className="cards">     
               {eateryCards}            
           </div>
+          
         </div>
               
       </Fragment>

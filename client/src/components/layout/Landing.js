@@ -17,7 +17,7 @@ const Landing = ({ isAuthenticated }) => {
          <p className='text-center'> 
          Find the New York City Health Inspection Grades of the eateries near you. Create an Account to save your favorite places!
          <br />
-         Made with <span className='hearts'>&hearts;</span> by <a href='http://the.ethelcofresi.com/'>E.Cofresi 2019</a></p>
+         Made with <span className='hearts'>&hearts;</span> by <a href='http://the.ethelcofresi.com/'>E.Cofresi</a></p>
 
      </section>
   );
