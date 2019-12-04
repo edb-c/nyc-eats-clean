@@ -20,18 +20,17 @@ export const fetchEateriesGrades = () => dispatch => {
 export const fetchEateriesGrades = () => async dispatch => {
   console.log("Eatery Action - fetchEateriesGrades");
   try {
-    //const res = await axios.get('/api/eateries/grades');
-    const res = await axios.get('https://data.cityofnewyork.us/resource/43nn-pn8j.json');
-console.log("Eatery Action ")
+    //const response = await axios.get('/api/eateries/grades');
+    const response = await axios.get('https://data.cityofnewyork.us/resource/43nn-pn8j.json?$limit=10');
     dispatch({
       type: FETCH_EATERIES_GRADES,
-      payload: res.data
+      payload: response.data
      
     });
   } catch (err) {
     dispatch({
       type: FETCH_EATERIES_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: err}
     });
   }
 };

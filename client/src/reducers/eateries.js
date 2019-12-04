@@ -3,15 +3,12 @@ import { FETCH_EATERIES_GRADES } from '../actions/types';
 const initialState = {
   eateriesGrades: []
 };
-console.log("Eateries Reducer");
 export default (state=initialState, action) => {
-
+  console.log("Eateries Reducer-action.type is ", action.type);
+  
   switch (action.type) {
-
     case FETCH_EATERIES_GRADES:
-      console.log("case FETCH_EATERIES_GRADES");
-    //  console.log(action.payload)
-      return {
+      return {        
         ...state, 
         loading: false, 
         eateriesGrades: action.payload

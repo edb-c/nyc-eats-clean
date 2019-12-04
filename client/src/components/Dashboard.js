@@ -14,7 +14,8 @@ const Dashboard = ({
   useEffect(() => {
     getCurrentProfile();
   }, [getCurrentProfile]); 
-
+  
+  console.log("edbc - DASHBOARD COMPONENT");
   return loading && profile === null ? (
     <Spinner />
   ) : (

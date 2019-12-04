@@ -11,6 +11,7 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case GET_PROFILE:
+        console.log("in reducer - case GET PROFILE");
       return {
         ...state,
         profile: payload,

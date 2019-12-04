@@ -1,61 +1,44 @@
-import React, { Component, Fragment } from "react";
-//import EateryCard from '/EateryCard';
-//import GoogleMap from "./Map";
-//import { CardDeck, Card, Button } from "react-bootstrap";
+import React, { Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchEateriesGrades } from '../actions/eatery';
+//import Spinner from './layout/Spinner';
+import EateryList from '../components/EateryList';
+import EateryCard from '../components/EateryCard';
 
-import { connect } from "react-redux";
-import { fetchEateriesGrades } from "../actions/eatery";
+const EateriesContainer = ({ 
+  fetchEateriesGrades, 
+  eateries: { eateriesGrades }
 
-class EateriesContainer extends Component {
-  componentDidMount() {
-    this.props.fetchEateriesGrades();
-  }
-  render() {
-   
-    const eateryCards = this.props.eateriesGrades.map(eateryCard => (
-     <div className="card">
+}) => {
+  useEffect(() => {
+    fetchEateriesGrades();},
+    [fetchEateriesGrades]);
+
+ // {eateriesGrades.map(eateryGrade => <div>{eateryGrade.dba}</div>)} 
+  console.log("edbc - EateriesContainer COMPONENT");
+return(
+    <Fragment>
  
-    <div className="card-header">
-         <a href="#" class="card-link">{eateryCard.dba}</a><br />
-            Grade: {eateryCard.grade}                    
-          </div>                 
-          <div className="card-text">
-              Cuisine: {eateryCard.cuisine_description} <br />
-              Address: {eateryCard.building} {eateryCard.street}, 
-              {eateryCard.boro}
-              {" "}
-              {eateryCard.zipcode} <br />
-              Phone: {eateryCard.phone} <br />
-              Violation Description: 
-              {eateryCard.violation_description} <br />
-          </div>
-          <div class="card-text"><small class="text-muted">Last updated {eateryCard.grade_date}</small></div>
-      </div>  
- 
-    ));
+  <EateryList eateriesGrades={eateriesGrades} />
+  <EateryCard eateriesGrades={eateriesGrades} />
+    </Fragment>
+)
+};
 
-    return (
-      <Fragment>
-                
-        <div className="container-fluid">
-          <h1 className="display-4 text-center">
-            New York Health Inspection Results
-          </h1>
-          <div className="cards">     
-              {eateryCards}            
-          </div>
-          
-        </div>
-              
-      </Fragment>
-    ); //end return
-  } //end render
-} //end class EateriesComponent
+EateriesContainer.propTypes = { 
+  fetchEateriesGrades: PropTypes.func.isRequired,
+  eateries: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
-  eateriesGrades: state.eateries.eateriesGrades
+ //eateriesGrades: state.eateries.eateriesGrades,
+ eateries: state.eateries
 });
 
-export default connect(mapStateToProps, { fetchEateriesGrades })(
-  EateriesContainer
-);
+export default connect(
+  mapStateToProps,
+  { fetchEateriesGrades }
+)(EateriesContainer);
+
+ 

@@ -346,6 +346,7 @@ img {
   flex-direction: column;
 }
 https://getflywheel.com/layout/card-layout-css-grid-layout-how-to/
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
 */
 .cards {
   display: grid;
