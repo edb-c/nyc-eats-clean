@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchEateriesGrades } from '../actions/eatery';
 //import Spinner from './layout/Spinner';
 import EateryList from '../components/EateryList';
-import EateryCard from '../components/EateryCard';
+import SearchBox from '../components/layout/SearchBox';
 
 const EateriesContainer = ({ 
   fetchEateriesGrades, 
@@ -19,9 +19,8 @@ const EateriesContainer = ({
   console.log("edbc - EateriesContainer COMPONENT");
 return(
     <Fragment>
- 
+  <SearchBox></SearchBox>
   <EateryList eateriesGrades={eateriesGrades} />
-  <EateryCard eateriesGrades={eateriesGrades} />
     </Fragment>
 )
 };

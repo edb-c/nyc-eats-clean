@@ -12,8 +12,7 @@ const EateryList = ( { eateriesGrades }) => {
       New York Health Inspection Results
     </h1>  
     <div className="cards">                     
-      {eateriesGrades.map((eateryCard,index) => (        
-                  
+      {eateriesGrades.map((eateryCard,index) => (                    
         <EateryCard
           key={index}
           dba={eateryCard.dba}
