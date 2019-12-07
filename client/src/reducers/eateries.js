@@ -1,7 +1,8 @@
 import { FETCH_EATERIES_GRADES } from '../actions/types';
 
+
 const initialState = {
-  eateriesGrades: []
+  eateriesGrades: [],
 };
 export default (state=initialState, action) => {
   console.log("Eateries Reducer-action.type is ", action.type);

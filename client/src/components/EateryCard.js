@@ -1,6 +1,10 @@
 import React  from 'react';
 
-const EateryCard = ({ dba , grade, cuisine_description, building, street, boro, zipcode, phone, violation_description, grade_date}) => {
+const EateryCard = ({ 
+  dba , grade, cuisine_description, 
+  building, street, boro, zipcode, 
+  phone, violation_description, 
+  grade_date}) => {
 
     return (
     <div className="card">

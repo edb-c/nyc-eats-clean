@@ -325,26 +325,7 @@ img {
 }
 
 /* EATERIES COMPONENT*/
-
-.app-card-list {
-  display:inline-block;
-  width:100%;
-  margin:0;
-  min-height: 75vh;
-  white-space:normal;
-  overflow-x: scroll;
-  }
- /*
-.card {
-    display: grid;
-    margin: 10px 10px;
-    display: inline-block;
-    width:25%;    
-  }
-.card-group {
-  display: flex;
-  flex-direction: column;
-}
+/*
 https://getflywheel.com/layout/card-layout-css-grid-layout-how-to/
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
 */
@@ -359,3 +340,14 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_
   border-radius: 4px;
   padding: .5rem;
   }
+ /* 
+.searchBox{
+  input[type=text] {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+} 
+*/
