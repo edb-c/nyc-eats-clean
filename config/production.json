@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://ecofresi-NEC:cgJtxw0ylaGhrDwT@cluster0-tyj3p.mongodb.net/test?retryWrites=true&w=majority",
+    "MAP_API_KEY": "AIzaSyDdXlK2d7I-KCIXrO7ptDSbnOfQSJjDixI",
+    "jwtSecret": "mysecrettoken"
+  }
+  
