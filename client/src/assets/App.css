@@ -324,7 +324,7 @@ img {
   padding: 100px;
 }
 
-/* EATERIES COMPONENT*/
+/* EATERIES*/
 /*
 https://getflywheel.com/layout/card-layout-css-grid-layout-how-to/
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
@@ -340,6 +340,9 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_
   border-radius: 4px;
   padding: .5rem;
   }
+.eateries_container {
+  padding: 100px 25px;  
+  }  
  /* 
 .searchBox{
   input[type=text] {
@@ -349,5 +352,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_
     left: 50%;
     transform: translate(-50%, -50%);
   }
-} 
+}
+
+
 */

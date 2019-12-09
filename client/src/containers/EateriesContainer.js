@@ -19,8 +19,10 @@ const EateriesContainer = ({
   console.log("edbc - EateriesContainer COMPONENT");
 return(
     <Fragment>
-  <SearchBox></SearchBox>
-  <EateryList eateriesGrades={eateriesGrades} />
+       <div className="eateries_container">
+        <SearchBox></SearchBox>
+        <EateryList eateriesGrades={eateriesGrades} />
+      </div>
     </Fragment>
 )
 };
