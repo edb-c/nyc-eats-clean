@@ -15,7 +15,7 @@ const mongoose = require('mongoose');
 async function getNYCData() {
   console.log("Eateries Route api");
 
-  return axios.get('https://data.cityofnewyork.us/resource/43nn-pn8j.json');
+  return axios.get('https://data.cityofnewyork.us/resource/43nn-pn8j.json?$select=distinct dba, boro,building,street, zipcode, phone, cuisine_description,grade, grade_date, latitude, longitude');
 }
 router.get('/grades', async (req, res) => {
   try {
