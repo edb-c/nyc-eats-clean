@@ -12,7 +12,7 @@ const Landing = ({ isAuthenticated }) => {
     <section className='landing'>
 
         <div className='landing-inner'>
-          <h1 className='large'>Eat Clean In</h1>
+          <h1 className='large'>(STILL IN DEVELOPMENT) - Eat Clean In</h1>
          </div>
          <p className='text-center'> 
          Find the New York City Health Inspection Grades of the eateries near you. Create an Account to save your favorite places!
