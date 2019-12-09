@@ -6,6 +6,7 @@ const db = config.get('mongoURI');
 //Use async/await - asynchronous arrow function
 //Use try/catch block, so if it fails, the error message will display
 //mongoose.connect returns a promise so we put await before it
+console.log("In connectDB")
 const connectDB = async () => {
   try {
     await mongoose.connect(db, {
