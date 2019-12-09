@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getCurrentProfile, deleteAccount } from '../actions/profile';
 import Spinner from './layout/Spinner';
 
-const Dashboard = ({ 
+const Favorites = ({ 
   getCurrentProfile, 
   auth: { user },
   profile: { profile, loading }
@@ -15,14 +15,14 @@ const Dashboard = ({
     getCurrentProfile();
   }, [getCurrentProfile]); 
   
-  console.log("edbc - DASHBOARD COMPONENT");
+  console.log("edbc - favorites COMPONENT");
   return loading && profile === null ? (
     <Spinner />
   ) : (
     <Fragment>
-   <div className='dashboard'>
+   <div className='favorites'>
 
-      <h1 className='large text-primary'>Dashboard</h1>
+      <h1 className='large text-primary'>My Favorites</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Welcome {user && user.name}
      
@@ -56,7 +56,7 @@ const Dashboard = ({
   );
 };
 
-Dashboard.propTypes = { 
+Favorites.propTypes = { 
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
@@ -70,4 +70,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getCurrentProfile }
-)(Dashboard);
+)(Favorites);

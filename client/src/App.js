@@ -6,7 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Alert from './components/layout/Alert';
 import Register from './components/auth/Register';
-import Dashboard from './components/Dashboard';
+import Favorites from './components/Favorites';
 import PrivateRoute from './components/PrivateRoute';
 
 import Login from './components/auth/Login';
@@ -46,7 +46,7 @@ const App = () => {
 
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
-        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <PrivateRoute exact path='/favorites' component={Favorites} />
 
         <PrivateRoute exact path='/create-profile' component={CreateProfile} />
         <PrivateRoute exact path='/edit-profile' component={EditProfile} />
