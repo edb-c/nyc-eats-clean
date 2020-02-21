@@ -34,7 +34,7 @@ const Favorites = ({
           {profile.bio}
       <div className='dash-buttons'>
       <Link to='/edit-profile' class='btn btn-light'>
-        <i class='fas fa-user-circle text-primary' /> Edit Profile
+        <i className='fas fa-user-circle text-primary' /> Edit Profile
       </Link>
       </div>
           <div className='my-2'>

@@ -2,15 +2,23 @@ const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
 const app = express();
-var cors = require('cors')
+//var cors = require('cors')
 
 
 // Connect Database
 connectDB();
 
 //Cors
-app.use(cors())
+//app.use(cors());
 
+//app.options('*', cors()) // include before other routes
+/*app.options("/*", function(req, res, next){
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000/');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  res.send(200);
+});
+*/  
 // Init Middleware
 app.use(express.json({ extended: false }));
 
@@ -21,7 +29,6 @@ app.use(express.json({ extended: false }));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/eateries', require('./routes/api/eateries'));
 
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') {

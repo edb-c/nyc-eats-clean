@@ -8,7 +8,6 @@ const EateryCard = ({
   grade_date}) => {
 
   const fmt_gradeDate = moment(grade_date).calendar();
-    console.log(fmt_gradeDate)
 
     return (
     <div className="card">
